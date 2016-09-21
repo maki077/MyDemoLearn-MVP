@@ -155,4 +155,9 @@ public class MeiziActivity extends BaseActivity<MeiziPresenter> implements IMeiz
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        presenter.release();
+        super.onDestroy();
+    }
 }
