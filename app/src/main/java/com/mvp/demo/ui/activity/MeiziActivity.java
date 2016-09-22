@@ -21,7 +21,8 @@ import butterknife.BindView;
  * Administrator on 2016/9/21.
  */
 
-public class MeiziActivity extends BaseActivity<MeiziPresenter> implements IMeiziView, SwipeRefreshLayout.OnRefreshListener {
+public class MeiziActivity extends BaseActivity<MeiziPresenter> implements IMeiziView,
+        SwipeRefreshLayout.OnRefreshListener,MeiziAdapter.IClickItemListener {
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
     @BindView(R.id.swipe_refresh_layout)
@@ -66,6 +67,8 @@ public class MeiziActivity extends BaseActivity<MeiziPresenter> implements IMeiz
     public void initView() {
         meiziList = new ArrayList<>();
         adapter = new MeiziAdapter(this, meiziList);
+        adapter.setIClickItemListener(this);
+
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -159,5 +162,10 @@ public class MeiziActivity extends BaseActivity<MeiziPresenter> implements IMeiz
     protected void onDestroy() {
         presenter.release();
         super.onDestroy();
+    }
+
+    @Override
+    public void onClickImg() {
+        ToastUtil.showToast(this,"aaa");
     }
 }

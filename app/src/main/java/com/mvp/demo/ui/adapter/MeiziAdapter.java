@@ -25,6 +25,8 @@ import butterknife.ButterKnife;
 public class MeiziAdapter extends RecyclerView.Adapter<MeiziAdapter.MeiziHolder>{
     private List<Meizi> list;
     private Context context;
+    private IClickItemListener mIClickItemListener;
+
 
     public MeiziAdapter(Context context, List<Meizi> list) {
         this.context = context;
@@ -60,6 +62,17 @@ public class MeiziAdapter extends RecyclerView.Adapter<MeiziAdapter.MeiziHolder>
         holder.tvDesc.setText(meizi.getDesc());
         holder.tvTime.setText(meizi.getPublishedAt());
 //        holder.tvAvatar.setVisibility(View.GONE);
+
+        if(mIClickItemListener!=null){
+            holder.ivMeizi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mIClickItemListener.onClickImg();
+                }
+            });
+        }
+
+
     }
 
     @Override
@@ -91,4 +104,11 @@ public class MeiziAdapter extends RecyclerView.Adapter<MeiziAdapter.MeiziHolder>
         }
     }
 
+    public interface IClickItemListener {
+        void onClickImg();
+    }
+
+    public void setIClickItemListener(IClickItemListener mIClickItemListener) {
+        this.mIClickItemListener = mIClickItemListener;
+    }
 }
