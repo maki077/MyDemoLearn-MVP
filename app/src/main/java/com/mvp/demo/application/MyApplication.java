@@ -6,7 +6,7 @@ import butterknife.ButterKnife;
 
 /**
  * Administrator on 2016/9/21.
- * 主分支 master
+ * 主分支 分支1 优化Retrofit和Rxjava 框架
  */
 
 public class MyApplication extends Application {
