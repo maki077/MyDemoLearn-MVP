@@ -6,7 +6,7 @@ import butterknife.ButterKnife;
 
 /**
  * Administrator on 2016/9/21.
- * 主分支 master 主分支
+ * 主分支 master 主分支1
  */
 
 public class MyApplication extends Application {
