@@ -3,7 +3,7 @@ package com.mvp.demo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity_bak extends AppCompatActivity {
+public class MainActivity_bak2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
